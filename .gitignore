@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pth
+.venv/
+.env
+# Backend Python files
+backend/__pycache__/
+backend/*.pyc
+backend/*.pth
+backend/venv/
+backend/.venv/
+backend/.env
+.DS_Store
