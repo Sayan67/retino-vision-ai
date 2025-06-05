@@ -17,17 +17,18 @@ load_dotenv()
 
 app = FastAPI()
 
+access_token = os.getenv("HF_TOKEN")
+client_url = os.getenv("CLIENT_URL", "http://localhost:5173")
 # CORS for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[client_url],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # Login to Hugging Face Hub
-access_token = os.getenv("HF_TOKEN")
 if access_token:
     login(token=access_token)
 else:
@@ -101,7 +102,6 @@ async def predict(file: UploadFile = File(...)):
         output = model(input_tensor)
         pred = torch.argmax(output, dim=1).item()
         confidence = torch.softmax(output, dim=1).squeeze().tolist()
-
     return JSONResponse(content={
         "prediction": pred,
         "confidence": confidence

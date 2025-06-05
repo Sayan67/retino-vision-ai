@@ -35,6 +35,7 @@ function Form({
       }
     } catch (error) {
       setLoading(false);
+      
       console.log("Error submitting form data:", error);
     }
   }
@@ -53,40 +54,9 @@ function Form({
   return (
     <form
       onSubmit={(e) => handleSubmit(e)}
-      className="sm:min-w-[500px] rounded-md bg-white drop-shadow-xl p-8 flex flex-col items-center gap-6"
+      className="sm:min-w-[500px] rounded-md bg-white drop-shadow-xl sm:p-8 p-4 flex flex-col items-center gap-6"
     >
       <h1 className="text-2xl font-bold">Retino Vision AI</h1>
-      {/* <label
-        htmlFor="uploadFile1"
-        className="bg-white text-slate-500 font-semibold text-base rounded max-w-md h-52 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed w-full px-4"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-11 mb-3 fill-gray-500"
-          viewBox="0 0 32 32"
-        >
-          <path
-            d="M23.75 11.044a7.99 7.99 0 0 0-15.5-.009A8 8 0 0 0 9 27h3a1 1 0 0 0 0-2H9a6 6 0 0 1-.035-12 1.038 1.038 0 0 0 1.1-.854 5.991 5.991 0 0 1 11.862 0A1.08 1.08 0 0 0 23 13a6 6 0 0 1 0 12h-3a1 1 0 0 0 0 2h3a8 8 0 0 0 .75-15.956z"
-            data-original="#000000"
-          />
-          <path
-            d="M20.293 19.707a1 1 0 0 0 1.414-1.414l-5-5a1 1 0 0 0-1.414 0l-5 5a1 1 0 0 0 1.414 1.414L15 16.414V29a1 1 0 0 0 2 0V16.414z"
-            data-original="#000000"
-          />
-        </svg>
-        Upload file
-        <input
-          type="file"
-          onChange={handleChange}
-          id="uploadFile1"
-          className="hidden"
-          accept=".png, .jpg, .jpeg, .svg, .webp"
-          disabled={loading}
-        />
-        <p className="text-xs font-medium text-slate-400 mt-2">
-          PNG, JPG SVG, WEBP are Allowed.
-        </p>
-      </label> */}
 
       <div className="flex items-center justify-center w-full flex-col">
         <label
@@ -133,7 +103,7 @@ function Form({
               <img
                 src={previewUrl}
                 alt="Preview"
-                className="mt-4 max-w-xs max-h-60 rounded border"
+                className="mt-4 max-w-xs max-h-60 rounded-md border"
               />
             )}
           </div>

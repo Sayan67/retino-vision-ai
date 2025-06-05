@@ -24,9 +24,22 @@ function Results({
       ) : (
         <div className="text-center">
           <h2 className="text-xl font-semibold">Results</h2>
+
           <p className="text-xl mt-2 font-bold">
-            Predicted Diabetic retinopathy stage: {results.prediction}
+            Predicted Diabetic retinopathy stage :{" "}
+            <span
+              className={`text-xl mt-2 font-bold ${
+                results.prediction in [0, 1]
+                  ? "text-blue-600"
+                  : results.prediction in [0, 1]
+                  ? "text-orange-500"
+                  : "text-red-600"
+              }`}
+            >
+              {results.prediction}
+            </span>
           </p>
+
           {/* <p className="text-gray-500 mt-2">
             Confidence: {results.confidence.join(", ")}
           </p> */}
